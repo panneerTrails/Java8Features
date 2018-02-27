@@ -13,7 +13,7 @@ public class StreamExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-        // Add code here.
+        // Add code here
 	}
 
 }

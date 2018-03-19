@@ -5,12 +5,14 @@ package com.michael.java8.features.streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamFilterWithMultipleConditions {
 
     public static void main(String[] args) {
 
         List<Person> persons = Arrays.asList(new Person("mkyong", 30),new Person("jack", 20),new Person("lawrence", 40),new Person("jack", 50));
+        
 
         Person result1 = persons.stream()
                 .filter((p) -> "jack".equals(p.getName()) && 20 == p.getAge())

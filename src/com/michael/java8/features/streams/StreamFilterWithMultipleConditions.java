@@ -31,7 +31,7 @@ public class StreamFilterWithMultipleConditions {
                 }).findAny()
                 .orElse(null);
 
-        //System.out.println("result 2 :" + result2);
+        System.out.println("result 2 :" + result2);
 
     }
 

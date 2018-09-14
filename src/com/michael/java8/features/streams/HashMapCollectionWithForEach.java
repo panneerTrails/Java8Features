@@ -24,12 +24,16 @@ public class HashMapCollectionWithForEach {
 		items.put("E", 50);
 		items.put("F", 60);
 
-	    items.forEach((k,v) -> System.out.println("Item : " + k + " Count : " + v));
+	    // printing all elements in map
+		items.forEach((k,v) -> System.out.println("Item : " + k + " Count : " + v));
+		
+		System.out.println();
 	    
-	    items.forEach((k,v) -> {
-	    	System.out.println("Item : " + k + " Count : " + v);
+	    // printing only 'F' element in map
+		items.forEach((k,v) -> {
 	    	if("F".equals(k)){
 	    		System.out.println("Hello F");
+		    	System.out.println("Item : " + k + " Count : " + v);
 	    	}
 	    });
 	}

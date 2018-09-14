@@ -31,15 +31,34 @@ public class ParallelAndSequentialStreamsTogether {
 		Person p5 = new Person("Alfred", 5);
 		persons.add(p5);
 
+		System.out.println("The persons filtered and collected");
+		List<Person> persons2 = persons.stream()
+				.parallel()
+				.filter(p -> p.getAge() > 18)  // filtering will be performed concurrently
+				.collect(Collectors.toList());
+
+		persons2.forEach(System.out::println);
+
+		System.out.println();
+
+		System.out.println("The persons filtered and collected as students");
+
 
 		List<Student> students = persons.stream()
-		        .parallel()
-		        .filter(p -> p.getAge() > 18)  // filtering will be performed concurrently
-		        .sequential()
-		        .map(Student::new)
-		        .collect(Collectors.toCollection(ArrayList::new));
-		
+				.parallel()
+				.filter(p -> p.getAge() > 18)  // filtering will be performed concurrently
+				.sequential()
+				.map(Student::new)
+				.collect(Collectors.toCollection(ArrayList::new));
+
 		students.forEach(System.out::println);
+
+
+		System.out.println();
+
+		System.out.println("The persons are just printed using method referrence in parallel stream");
+
+		persons.stream().parallel().forEach(System.out::println);
 	}
 
 }

@@ -44,7 +44,7 @@ public class ArrayListCollectionWithForEach {
 		//Output : A,B,C,D,E
 		items.forEach(System.out::println);
 
-		//Stream and filter
+		//Stream and filter , then use forEach to display the filtered elements
 		//Output : B
 		System.out.println();
 		items.stream()

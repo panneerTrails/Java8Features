@@ -29,6 +29,8 @@ public class StreamFilterWithMap {
         List<String> collectedAsList = persons.stream()
                 .map(Person::getName)
                 .collect(Collectors.toList());
+        
+        System.out.println();
 
         System.out.println("Results Collected As List \n" );
         collectedAsList.forEach(System.out::println);
@@ -36,6 +38,9 @@ public class StreamFilterWithMap {
         Set<String> collectAsSet = persons.stream()
                 .map(Person::getName)
                 .collect(Collectors.toSet());
+        
+        System.out.println();
+
         System.out.println("Results Collected As Set \n" );
         collectAsSet.forEach(System.out::println);
 

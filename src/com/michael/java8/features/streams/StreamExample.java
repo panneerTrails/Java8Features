@@ -59,8 +59,8 @@ public class StreamExample {
 	public static void main(String[] args) {
         // Add code here
 		StreamExample streamExample = new StreamExample();
-		//streamExample.displayParallelStreamProcessWithOrder();
-		//streamExample.displayParallelStreamProcessWithoutOrder();
+		streamExample.displayParallelStreamProcessWithOrder();
+		streamExample.displayParallelStreamProcessWithoutOrder();
 		List<Integer> numbers = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
             numbers.add(i);

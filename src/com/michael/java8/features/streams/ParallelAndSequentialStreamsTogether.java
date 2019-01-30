@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.michael.java8.practice.model.Person;
+import com.michael.java8.practice.model.Student;
+
 /**
  * @author 109726
  *

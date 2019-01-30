@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.michael.java8.practice.model.Person;
+
 public class StreamFilterWithMap {
 	
 	public static void main(String[] args) {

@@ -6,6 +6,8 @@ package com.michael.java8.features.streams;
 import java.util.Arrays;
 import java.util.List;
 
+import com.michael.java8.practice.model.Person;
+
 public class StreamFilterWithMultipleConditions {
 
     public static void main(String[] args) {

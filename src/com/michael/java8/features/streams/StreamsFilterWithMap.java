@@ -27,12 +27,6 @@ public class StreamsFilterWithMap {
 				new Person("lawrence", 40)
 				);
 
-
-		// Display the collection using forEach with method reference
-		System.out.println("Display the collection using forEach with method reference");
-		persons.forEach(System.out::println);
-
-
 		System.out.println();
 
 
@@ -61,14 +55,21 @@ public class StreamsFilterWithMap {
 		System.out.println("Filter the element's name which matches with 'jack' and display it");
 		String name = persons.stream()
 				.filter(x -> "jack".equals(x.getName()))
-				.map(Person::getName)                        //convert stream to String
+				.map(Person::getName)                        //convert stream (Person) to String
 				.findAny()
 				.orElse("");
 
 		System.out.println("The filtered person's name : " + name);
+		
+		
+		System.out.println();
 
-
-
+		
+		//get count of empty string and use count API
+		System.out.println("Get count of empty string and use count API");
+		List<String>strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+		long count = strings.stream().filter(string -> string.isEmpty()).count();
+        System.out.println("The empty string count :" + count);
 	}
 
 }

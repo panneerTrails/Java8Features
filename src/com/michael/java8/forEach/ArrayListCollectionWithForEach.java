@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.michael.java8.features.foreach;
+package com.michael.java8.forEach;
 
 import java.util.ArrayList;
 import java.util.List;

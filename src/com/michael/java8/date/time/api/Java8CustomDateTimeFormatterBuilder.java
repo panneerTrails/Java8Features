@@ -14,12 +14,12 @@ import java.time.temporal.ChronoField;
  * @author 109726
  *
  */
-public class ZonedDateTimeAPI {
+public class Java8CustomDateTimeFormatterBuilder {
 
 	/**
 	 * 
 	 */
-	public ZonedDateTimeAPI() {
+	public Java8CustomDateTimeFormatterBuilder() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -37,9 +37,16 @@ public class ZonedDateTimeAPI {
 		return dateTimeFormatterBuilder;
 	}
 	
-	public String getTheFormattedDateAndTime(String Locale){
+	public String getTheFormattedDateAndTimeByGivenLocale(String Locale){
+		  ZoneId id = ZoneId.of(Locale);
+	      DateTimeFormatter dateTimeFormatter = getDateTimeFormatterBuilder().toFormatter();
+	      ZonedDateTime zonedDateTime = ZonedDateTime.now(id!=null?id:ZoneId.systemDefault());
+	      String formattedDateAndTime = zonedDateTime.format(dateTimeFormatter);
+	      return formattedDateAndTime;
+	}
+	
+	public String getTheFormattedDateAndTime(){
 		  ZoneId id = null;
-	      id = ZoneId.of(Locale);
 	      DateTimeFormatter dateTimeFormatter = getDateTimeFormatterBuilder().toFormatter();
 	      ZonedDateTime zonedDateTime = ZonedDateTime.now(id!=null?id:ZoneId.systemDefault());
 	      String formattedDateAndTime = zonedDateTime.format(dateTimeFormatter);
@@ -51,8 +58,14 @@ public class ZonedDateTimeAPI {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ZonedDateTimeAPI zonedDateTimeAPI = new ZonedDateTimeAPI();
-		System.out.println(zonedDateTimeAPI.getTheFormattedDateAndTime("Europe/Paris"));
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		System.out.println("System Default TimeZone : " + defaultZoneId);
+
+		Java8CustomDateTimeFormatterBuilder zonedDateTimeAPI = new Java8CustomDateTimeFormatterBuilder();
+		System.out.println("ZonedDateTime by given Locale and Custom Formatter -> " + zonedDateTimeAPI.getTheFormattedDateAndTimeByGivenLocale("Europe/Paris"));
+		
+		System.out.println("ZonedDateTime by given Custom Formatter -> " +zonedDateTimeAPI.getTheFormattedDateAndTime());
+
 	}
 
 }

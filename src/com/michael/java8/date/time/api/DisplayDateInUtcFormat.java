@@ -28,7 +28,5 @@ public class DisplayDateInUtcFormat {
 		TimeZone zone = TimeZone.getTimeZone("ar-QA");
 		simpleDateFormat.setTimeZone(zone);
 		System.out.println(simpleDateFormat.format(new Date()));
-	  // System.out.println(new SimpleDateFormat("E MMM dd yyyy HH:mm:ss 'GMT'Z (zzzz)").format(new Date())); 
-
 	}
 }

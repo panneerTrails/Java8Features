@@ -4,6 +4,7 @@
 package com.michael.java8.date.time.api;
 
 import java.time.Duration;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,34 +26,44 @@ public class FomatAndParseZonedDateTime {
 		ZonedDateTime givenZonedDateTimeParsed = ZonedDateTime.parse("2019-07-09T06:34:34.138+0530",formatter);
 
 
-		System.out.println("\n 1. Given Dtae - zonedDateTimeParsed -> " + givenZonedDateTimeParsed);	
+		System.out.println("\n 1. Given DateTime - zonedDateTimeParsed -> " + givenZonedDateTimeParsed);	
 
-		//System.out.println("ZonedDateTime.now() -> " + ZonedDateTime.now());		   
+		System.out.println("\n 2. Current System - zonedDateTimeParsed -> " + ZonedDateTime.now());	
 
-		String zonedDateTimeFormatted = ZonedDateTime.now().format(formatter);
-
-		System.out.println("\n 2. Current System Date - ZonedDateTime.now() - Formatted -> " + zonedDateTimeFormatted);		   
+     	String zonedDateTimeFormatted = ZonedDateTime.now().format(formatter);
+     	
+		System.out.println("\n 3. Current System Date - ZonedDateTime.now() - Formatted -> " + zonedDateTimeFormatted);		   
 
 
 		ZonedDateTime currentZonedDateTimeParsed = ZonedDateTime.parse(zonedDateTimeFormatted,formatter);
 
-		System.out.println("\n 3. Current System Date - ZonedDateTime.now() - Parsed with specific formatter -> " + currentZonedDateTimeParsed);
+		System.out.println("\n 4. Current System Date - ZonedDateTime.now() - Parsed with specific formatter -> " + currentZonedDateTimeParsed);
+	
+		System.out.println("\n 5. Current System Date - ZonedDateTime.now() With ZoneId -> " + currentZonedDateTimeParsed.withZoneSameLocal(ZoneId.systemDefault()));
+
 
 		Duration duration = Duration.between(givenZonedDateTimeParsed,currentZonedDateTimeParsed);
-		System.out.println("\n 4. Difference between two given dates in days: " + duration.toDays());
+		System.out.println("\n 6. Difference between two given dates in days: " + duration.toDays());
 
 		if(duration.toDays() >= 180){
-			System.out.println("\n 5. Result  -> The ticket or activity has to be archived");
+			System.out.println("\n 7. Result  -> The ticket or activity has to be archived");
 		}
 
 
-		System.out.println("\n 6. Time Zone of zonedDateTimeParsed -> " + currentZonedDateTimeParsed.getZone());		
+		System.out.println("\n 8. Time Zone of zonedDateTimeParsed -> " + currentZonedDateTimeParsed.getZone());		
 
-		System.out.println("\n 7. ZoneOffset of zonedDateTimeParsed -> " + currentZonedDateTimeParsed.getOffset());	
+		System.out.println("\n 9. ZoneOffset of zonedDateTimeParsed -> " + currentZonedDateTimeParsed.getOffset());	
 
-		System.out.println("\n 8. ZoneId with GMT of zonedDateTimeParsed -> " + ZoneOffset.ofOffset("GMT", currentZonedDateTimeParsed.getOffset()));	
+		System.out.println("\n 10. ZoneId with GMT of zonedDateTimeParsed -> " + ZoneOffset.ofOffset("GMT", currentZonedDateTimeParsed.getOffset()));	
 
-		System.out.println("\n 9. ZoneId with UTC of zonedDateTimeParsed -> " + ZoneOffset.ofOffset("UTC", currentZonedDateTimeParsed.getOffset()));	
+		System.out.println("\n 11. ZoneId with UTC of zonedDateTimeParsed -> " + ZoneOffset.ofOffset("UTC", currentZonedDateTimeParsed.getOffset()));	
+
+
+		System.out.println("\n Convert Calcutta LocalDateTime to Singapore LcoalDateTime ");	
+
+		ZoneId singaporeZoneId = ZoneId.of("Asia/Singapore");
+		System.out.println("TimeZone : " + singaporeZoneId);
+		System.out.println("\n 12. Lcoal Singapore DateTime derived from Calcutta DateTime using ZoneId -> " + currentZonedDateTimeParsed.withZoneSameInstant(singaporeZoneId));
 
 	}
 
